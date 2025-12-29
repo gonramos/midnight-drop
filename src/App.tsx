@@ -380,15 +380,15 @@ export default function App() {
       {showHelp && (
         <div className="overlay" role="dialog" aria-modal="true" onClick={() => setShowHelp(false)}>
           <div className="overlayCard">
-            <div className="overlayTitle">Setup (quick)</div>
+            <div className="overlayTitle">SETUP</div>
             <ol className="overlayList">
-              <li>Open YouTube and find the song/video you want.</li>
-              <li>Copy the video link.</li>
-              <li>Paste it into the field on this page.</li>
-              <li>Click <b>Arm YouTube</b>.</li>
-              <li>Enter the <b>mm:ss</b> where the drop happens.</li>
-              <li>Click <b>Schedule</b> and keep this tab visible.</li>
-              <li>If autoplay is blocked, click play in the video when prompted.</li>
+              <li>Open YouTube and find the song/video you want</li>
+              <li>Copy the video link</li>
+              <li>Paste it into the field on this page</li>
+              <li>Click <b>Arm YouTube</b></li>
+              <li>Enter the <b>mm:ss</b> where the drop happens</li>
+              <li>Click <b>Schedule</b> and keep this tab visible</li>
+              <li>If autoplay is blocked, click play in the video when prompted</li>
             </ol>
 
             <div className="overlayButtons">
