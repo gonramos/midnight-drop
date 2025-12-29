@@ -1,0 +1,325 @@
+:root {
+  --mx: 0.5;
+  --my: 0.45;
+  --dx: 0px;
+  --dy: 0px;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.92);
+  background: #05060a;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  isolation: isolate;
+}
+
+/* Background */
+.bg {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  transform: translate3d(var(--dx), var(--dy), 0);
+  filter: blur(44px) saturate(1.25);
+  opacity: 0.95;
+  background:
+    radial-gradient(
+      700px circle at calc(var(--mx) * 100%) calc(var(--my) * 100%),
+      rgba(255, 0, 200, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at calc((1 - var(--mx)) * 100%) calc(var(--my) * 100%),
+      rgba(0, 200, 255, 0.18),
+      transparent 62%
+    ),
+    radial-gradient(
+      720px circle at calc(var(--mx) * 100%) calc((1 - var(--my)) * 100%),
+      rgba(255, 200, 0, 0.12),
+      transparent 64%
+    ),
+    linear-gradient(120deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  animation: drift 7s ease-in-out infinite alternate; /* faster */
+}
+
+.brand {
+  position: fixed;
+  top: 16px;
+  left: 18px;
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.brandName {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+.brandTagline {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.40);
+}
+
+@keyframes drift {
+  0%   { --dx: -2.5%; --dy: -1.8%; }
+  100% { --dx:  2.5%; --dy:  1.8%; }
+}
+
+/* Center stack holds countdown + YouTube widget */
+.centerStack {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  pointer-events: auto; 
+}
+
+.heroInner {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  transform: translateY(-10px);
+}
+
+.label {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.countdown {
+  margin-top: 6px;
+  font-size: clamp(64px, 10vw, 116px);
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  line-height: 1.02;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+
+  /* keep it steady */
+  display: inline-block;
+  width: 8ch;
+  text-align: center;
+
+  /* timer font */
+  font-family: "Cutive Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-kerning: none;
+  font-variant-ligatures: none;
+}
+
+.smallLabel {
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+/* Bottom cluster */
+.bottom {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.card {
+  width: min(520px, 92vw);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 14px 18px;
+  backdrop-filter: blur(12px);
+}
+
+.time {
+  margin-top: 6px;
+  font-size: 34px;
+  font-weight: 650;
+
+  /* keep it steady */
+  display: inline-block;
+  width: 8ch;
+  text-align: center;
+
+  /* timer font */
+  font-family: "Cutive Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-kerning: none;
+  font-variant-ligatures: none;
+}
+
+.footerHint {
+  font-size: 13px;
+  opacity: 0.62;
+}
+
+/* Controls (inputs/buttons) */
+.input {
+  width: min(520px, 70vw);
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.92);
+  outline: none;
+}
+
+.miniInput {
+  width: 56px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.92);
+  text-align: center;
+  outline: none;
+}
+
+.btn, .btnSecondary {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+}
+
+.btnSecondary {
+  background: rgba(0,0,0,0.22);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* YouTube panel is interactive */
+.ytPanel {
+  margin-top: 20px;
+  width: min(820px, 92vw);
+  display: grid;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.ytRow {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ytStatus {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* Wrap centers the frame */
+.ytFrameWrap {
+  display: grid;
+  place-items: center;
+  margin-top: 4px;
+}
+
+/* Frame width matches the input width */
+.ytFrame {
+  width: min(520px, 70vw); /* same as .input */
+}
+
+/* Force the injected iframe to obey our width */
+#yt-player,
+#yt-player iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* Keep 16:9 aspect ratio */
+#yt-player iframe {
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+}
+
+.dropGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.helpBtn {
+  justify-self: center;
+  width: min(320px, 70vw);
+  margin: 55px auto 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255, 255, 255, 0.068);
+  color: rgba(255,255,255,0.95);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  padding: 22px;
+}
+
+.overlayCard {
+  width: min(900px, 94vw);
+  max-height: min(80vh, 820px);
+  overflow: auto;
+  //background: rgba(255,255,255,0.60);
+  border-radius: 22px;
+  padding: 26px 24px;
+  color: rgba(0,0,0,0.88);
+  //box-shadow: 0 20px 80px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.overlayTitle {
+  font-size: clamp(70px, 3vw, 80px);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.overlayList {
+  margin: 14px auto 18px;
+  padding-left: 1.2em;
+  text-align: left;
+  font-size: clamp(16px, 2.1vw, 20px);
+  line-height: 1.5;
+  max-width: 48ch;
+}
+
+.overlayList li {
+  margin: 10px 0;
+}
