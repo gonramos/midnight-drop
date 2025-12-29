@@ -100,8 +100,8 @@ export default function App() {
   // YouTube UI state
   const [ytInput, setYtInput] = useState("");
   const [videoId, setVideoId] = useState<string | null>(null);
-  const [dropMin, setDropMin] = useState("1");
-  const [dropSec, setDropSec] = useState("55");
+  const [dropMin, setDropMin] = useState("00");
+  const [dropSec, setDropSec] = useState("00");
   const [nudgeMs, setNudgeMs] = useState("0");
   const [status, setStatus] = useState<string>("Not armed");
   const [scheduledStartAt, setScheduledStartAt] = useState<string>("");
