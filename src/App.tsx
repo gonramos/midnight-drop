@@ -304,7 +304,7 @@ export default function App() {
         <div className="heroInner">
           <div className="label">
             Countdown to midnight
-            <div className="midnightDate">{formatMidnightDate(midnight)}</div>
+            <div className="midnightDate">next hit - {formatMidnightDate(midnight)}</div>
           </div>
           <div className="countdown">{formatHMS(msLeft)}</div>
 
