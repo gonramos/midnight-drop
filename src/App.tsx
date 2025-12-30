@@ -370,7 +370,7 @@ export default function App() {
 
       <div className="bottom">
         <div className="card">
-          <div className="smallLabel">Current time</div>
+          <div className="smallLabel">Current local time</div>
           <div className="time">{formatTime(now)}</div>
         </div>
 
